@@ -1,0 +1,280 @@
+/* Smart Traffic Lampung Design Tokens & System
+   Berdasarkan SKILL_DESAIN_SMART_TRAFFIC_LAMPUNG.md & PRD */
+
+:root {
+  /* Color Tokens */
+  --primary: #005087;
+  --primary-container: #1769AA;
+  --primary-fixed: #D1E4FF;
+  --secondary: #4D5F7D;
+  --secondary-container: #C8DBFE;
+  --tertiary: #005854;
+  --tertiary-container: #00726E;
+  --surface: #F8F9FA;
+  --surface-container-low: #F1F4F9;
+  --surface-container-high: #E2E7EE;
+  --surface-white: #FFFFFF;
+  --text-main: #191C1E;
+  --text-muted: #535F70;
+  --text-inverse: #FFFFFF;
+
+  /* Traffic Status Colors */
+  --status-lancar: #059669;
+  --status-lancar-bg: #ECFDF5;
+  --status-ramai: #D97706;
+  --status-ramai-bg: #FFFBEB;
+  --status-padat: #DC2626;
+  --status-padat-bg: #FEF2F2;
+  --status-macet: #7F1D1D;
+  --status-macet-bg: #FEE2E2;
+
+  /* Typography */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-sticky: 0 2px 10px rgba(0, 80, 135, 0.08);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--surface);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Button utility styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: var(--primary-container);
+  box-shadow: 0 4px 12px rgba(0, 80, 135, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #fff;
+  border-color: #cbd5e1;
+  color: var(--text-main);
+}
+.btn-secondary:hover {
+  background-color: var(--surface-container-low);
+  border-color: #94a3b8;
+}
+
+.btn-teal {
+  background-color: var(--tertiary);
+  color: #fff;
+}
+.btn-teal:hover {
+  background-color: var(--tertiary-container);
+  box-shadow: 0 4px 12px rgba(0, 88, 84, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: #fff;
+}
+.btn-danger:hover {
+  background-color: #b91c1c;
+}
+
+.btn-sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8125rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-lancar {
+  background-color: var(--status-lancar-bg);
+  color: var(--status-lancar);
+  border: 1px solid #a7f3d0;
+}
+
+.badge-ramai {
+  background-color: var(--status-ramai-bg);
+  color: var(--status-ramai);
+  border: 1px solid #fde68a;
+}
+
+.badge-padat {
+  background-color: var(--status-padat-bg);
+  color: var(--status-padat);
+  border: 1px solid #fecaca;
+}
+
+.badge-macet {
+  background-color: var(--status-macet-bg);
+  color: var(--status-macet);
+  border: 1px solid #fca5a5;
+}
+
+/* Card */
+.card {
+  background: var(--surface-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Interactive Map Pulse Marker */
+@keyframes mapPulse {
+  0% {
+    r: 6px;
+    opacity: 1;
+  }
+  50% {
+    r: 14px;
+    opacity: 0.4;
+  }
+  100% {
+    r: 6px;
+    opacity: 1;
+  }
+}
+
+.pulse-marker {
+  animation: mapPulse 2s infinite ease-in-out;
+}
+
+/* Live Blink Dot */
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.live-dot {
+  animation: liveBlink 1.5s infinite ease-in-out;
+}
+
+/* Modal Backdrop */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  max-width: 650px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 768px) {
+  .nav-tabs-desktop {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: inline-flex !important;
+  }
+  .grid-2col {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-heading {
+    font-size: 1.75rem !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .mobile-drawer {
+    display: none !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
